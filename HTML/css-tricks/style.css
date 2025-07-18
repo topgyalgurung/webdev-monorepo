@@ -1,0 +1,93 @@
+:root{
+    /* --text-color:rgb(255, 0, 0); */
+    /* composition */
+    --r: 255;
+    --g: 0;
+    --b: 0;
+    --text-color: rgb(var(--r), var(--g), var(--b));
+
+    /* css counter */
+
+    counter-reset: headings;
+    
+}
+
+
+p{
+    color:var(--text-color);
+}
+
+h1{
+    /* override */
+    --text-color:green;
+    color:var(--text-color);
+  
+}
+
+h3{
+      counter-increment: headings;
+}
+
+h3::before{
+    content:counter(headings);
+}
+
+.flex{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:1fr 500px 1fr;
+    grid-template-rows: 100px 200px;
+    place-items: center;
+}
+
+article {
+    width: clamp(300px, 50%, 600px);
+}
+
+.🙏🏼{
+    display:flex;
+}
+.💄{
+    color:rgb(251, 59, 91)
+}
+.✨{
+    background: linear-gradient(#e66465, #9198e5);
+}
+
+.drop{
+    animation: dropIn 1s ease forwards;
+    animation-delay: calc(var(--order) * 100ms);
+}
+
+@keyframes dropIn {
+    from {
+        transform: translateY(-500%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+
+/* finding focus within */
+
+.dropdown{
+    opacity: 0;
+    visibility: hidden;
+}
+
+button:focus-within .dropdown{
+    opacity: 1;
+    visibility: visible;
+}
+
+video{
+    width:100%
+    aspect-ratio: 16/9;
+}
+
