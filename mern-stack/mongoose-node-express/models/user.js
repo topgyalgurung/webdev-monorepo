@@ -1,0 +1,31 @@
+var mongoose =require('mongoose');
+
+const userSchema=new mongoose.Schema({
+    username:{
+        type: String,
+        unique: true,
+    },
+});
+
+userSchema.statics.findByLogin=async function(login){
+    let user= await this.findOne({
+        username:login,
+    });
+    if(!user){
+        user=await this.findOne({
+            email:login
+        });
+    }
+    return user;
+};
+// remove hook
+//in case user is deleted, cascade delete for all msgs relation to user
+userSchema.pre('remove', function(next){
+    this.model('Message').deleteMany({
+        user:this._id
+    },next);
+});
+
+const User=mongoose.model('User', userSchema);
+
+module.exports= User;

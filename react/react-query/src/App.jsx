@@ -1,6 +1,16 @@
 import {QueryClient, QueryClientProvider, useQuery, useMutation} from '@tanstack/react-query';
+import {ReactQueryDevtools} from '@tanstack/react-query-devtools';
 
 const queryClient = new QueryClient()
+
+function App(){
+	return(
+		<QueryClientProvider client={queryClient}>
+			<Cars/>
+			<ReactQueryDevtools/>
+		</QueryClientProvider>
+	)
+}
 
 // fetch
 async function fetchCars(){
@@ -55,13 +65,5 @@ function Cars(){
         </ul>
     )
 
-}
-function App(){
-	return(
-		<QueryClientProvider client={queryClient}>
-			<Cars/>
-			<ReactQueryDevtools/>
-		</QueryClientProvider>
-	)
 }
 		
