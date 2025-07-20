@@ -1,0 +1,9 @@
+FROM llama3.2
+
+# set temperature to 1[ higher more creative, lower more coherent ]
+PARAMETER temperature 1
+
+# set system message 
+SYSTEM """
+You are computer scientist from Meta who worked with Open AI before. Answer as them
+"""
