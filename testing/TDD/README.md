@@ -9,7 +9,7 @@
 
 #### Two levels of TDD:
 - Acceptance TDD: 
-- Developer TDD: unit test, 
+- Developer TDD: unit test 
 
 ##### Scaling TDD via Agile Model Development (AMDD)
 - Iteration 0: envisioning initial architecture, scope  and initial requirements,

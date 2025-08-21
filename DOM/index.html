@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+  .highlight {
+    color: white;
+    background-color: black;
+    padding: 10px;
+    width: 250px;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+     <section>
+      <img
+        src="dinosaur.png"
+        alt="A red Tyrannosaurus Rex: A two legged dinosaur
+        standing upright like a human, with small arms, and a
+        large head with lots of sharp teeth." />
+      <p>
+        Here we will add a link to the
+        <a href="https://www.mozilla.org/">Mozilla homepage</a>
+      </p>
+    </section>
+    <script>
+     const link = document.querySelector("a"); // select it and store in var
+    link.textContent = "Mozilla Developer Network"; // update val
+    link.href = "https://developer.mozilla.org";
+    
+    const sect = document.querySelector("section");
+    const para = document.createElement("p");
+    para.textContent = "We hope you enjoyed the ride.";
+    sect.appendChild(para);
+    
+    const text = document.createTextNode(
+    " — the premier source for web development knowledge.",
+    );
+    const linkPara = document.querySelector("p");
+    linkPara.appendChild(text);
+
+    sect.appendChild(linkPara);
+    // linkPara is reference to one and only copy of that paragraph
+    // if want to make copy and add, need to use Node.cloneNode()
+    sect.removeChild(linkPara);
+    linkPara.remove(); //remove based on reference 
+
+    // para.style.color = "white";
+    // para.style.backgroundColor = "black";
+    // para.style.padding = "10px";
+    // para.style.width = "250px";
+    // para.style.textAlign = "center";
+
+    para.setAttribute("class", "highlight");
+     // first method takes less setup and is good for simple uses, whereas the second method is more purist
+</script>
+</body>
+</html>
