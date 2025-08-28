@@ -44,6 +44,8 @@ def retrieve(query, top_n=3):
   # finally, return the top N most relevant chunks
   return similarities[:top_n]
 
+# chatbot 
+
 # generation phase 
 input_query = input('Ask me a question: ')
 retrieved_knowledge = retrieve(input_query)
@@ -72,3 +74,12 @@ stream = ollama.chat(
 print('Chatbot response:')
 for chunk in stream:
   print(chunk['message']['content'], end='', flush=True)
+
+# better or next steps 
+# consider context of the query
+# have chatbot write its own query based on user input 
+# can use reranking model 
+# current database stored in  memory, to scale use more efficient vector db like qdrant, pinecone, pgvector
+# can also preprocess each chunk before adding them to db 
+#  can use larger model for more complex task 
+
