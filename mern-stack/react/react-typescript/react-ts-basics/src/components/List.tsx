@@ -9,6 +9,7 @@ interface ListProps<T>{
 // TS hard time recognizing this generic
 //  solution: <T extends {}> or easier <T,>
 // or achieve same with function list
+// functional component with anonymous function
 const List = <T,> ({items, render}: ListProps<T>) => {
   return (
     <ul>
